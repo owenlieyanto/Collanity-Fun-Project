@@ -1,0 +1,32 @@
+<% flash.each do |type, msg| %>
+  <% if type == 'alert' %>
+    <div class="alert alert-danger" role="alert">
+      <%=  msg %>
+    </div>
+  <% else %>
+    <div class="alert alert-success" role="alert">
+      <%= msg %>
+    </div>
+  <% end %>
+<% end %>
+
+<h1 class="mb-3">List of Products</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col" colspan="3">Product</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+    <tr>
+      <td><b class="fs-5"><%= product.product_name %></b></td>
+      <td><%= link_to "Show", product, class:"btn btn-sm btn-primary" %></td>
+      <td><%= button_to "Remove", product, method: :delete, class:"btn btn-sm btn-danger" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h4>Click here to <%= link_to "Add New Products", root_path %></h4>

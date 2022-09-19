@@ -1,0 +1,28 @@
+/* reference: https://stackoverflow.com/questions/39473500/css-two-columns-100-width-with-same-height-a-square */
+
+big-box {
+    aspect-ratio: 1 / 1;
+    background: pink;
+    color: white;
+    float: left;
+    margin: 2px;
+    position: relative;
+    width: calc(48% - 4px);
+}
+
+small-box {
+    align-items: center;
+    aspect-ratio: 1 / 1;
+    background: #f1f1f1;
+    color: black;
+    display: flex;
+    float: left;
+    justify-content: center;
+    margin: 2%;
+    padding: 5%;
+    position: relative;
+}
+
+big-box div {
+    position: absolute;
+}

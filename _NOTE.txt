@@ -1,0 +1,12 @@
+Part_A_Rails_Funproject
+- It should have started on 5 Sep. But because of some things (ex: other interview process, going too deep into ruby tutorials), I started this part on 14 Sep.
+- There's a moment where I feel stuck and asked on stackoverflow, but I finally get the answer myself. 
+https://stackoverflow.com/questions/73728845/ruby-on-rails-how-to-1-read-json-from-url-then-2-get-the-desired-data-and-3
+
+Part_B_JQuery
+- I had no problem doing all the logic.
+- I having a little bit of difficulty on the CSS part (to make the box aspect ratio 1:1). I asked on stackoverflow.
+https://stackoverflow.com/questions/73755993/css-1-how-to-make-height-of-float-element-not-affected-by-child-element-2-ho
+
+Part_C_Algorithm.py
+- The logic is not that complicated, but it takes time to work on the code (approx. 2+hour)

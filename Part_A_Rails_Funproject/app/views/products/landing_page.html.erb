@@ -1,0 +1,24 @@
+<% flash.each do |type, msg| %>
+  <% if type == 'alert' %>
+    <div class="alert alert-danger" role="alert">
+      <%=  msg %>
+    </div>
+  <% else %>
+    <div class="alert alert-success" role="alert">
+      <%= msg %>
+    </div>
+  <% end %>
+<% end %>
+
+<%= form_with url: "/", method: :post do |form| %>
+
+  <h6>API: http://world.openfoodfacts.org/api/v0/product/&lt;upc_code&gt;.json</h6>
+  <div class="input-group mb-2 mt-2">
+    <%= form.label :upc_code, "Upc code", class:"input-group-text fw-bold" %>
+    <%= form.number_field :upc_code, class:"form-control", data: { numeric: true } %>
+  </div>
+  <div class="mb-3">
+    <%= form.submit "Submit", class:"btn btn-primary btn-sm" %> or <%= link_to "Cancel", "/", class:"btn btn-primary btn-sm"  %>
+  </div>
+  <h4>Click here for <%= link_to "List of products", products_path %></h4>
+<% end %>

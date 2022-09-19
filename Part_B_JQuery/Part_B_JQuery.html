@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part_B_JQuery</title>
+
+    <!-- my own custom CSS -->
+    <link href="style.css" rel="stylesheet">
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(function() {
+            // sbc = small box counter
+            var sbc = 1;
+
+            // button listener to add box(es)
+            $("button#start").click(function() {
+                // initial color
+                const bg_color = ['yellow', 'white', 'cyan', 'magenta'];
+
+                var num_new_boxes = $("#num_new_boxes").val();
+                for (let c = 0; c < num_new_boxes; c++) {
+                    // random left-right
+                    let i_pos = Math.floor(Math.random() * 2);
+                    let color = bg_color[Math.floor(Math.random() * bg_color.length)];
+
+                    // index position 0 = left; 1 = right
+                    let position = i_pos == 0 ? 'left' : 'right';
+
+                    $(`big-box#${position}-box`).append(
+                        `<small-box style="background: ${color}"><div>${sbc}</div></small-box>`
+                    );
+                    sbc++;
+                }
+            });
+
+            // small-box listener for moving between big-boxes
+            $('body').on('click', "small-box", function() {
+                var parent = $(this).parent()[0].id;
+
+                // if small-box is in left-box, move to right-box
+                if (parent == 'left-box') {
+                    $('big-box#right-box').append(this);
+                }
+                // if small-box is in right-box, move to left-box
+                else {
+                    $('big-box#left-box').append(this);
+                }
+            });
+
+        });
+    </script>
+
+</head>
+
+<body>
+    <p>Enter the number of new boxes: <input type="number" id="num_new_boxes"> <button id="start">Start</button></p>
+
+    <big-box id="left-box" style="background: blue;">
+        <small-box style="background: white">
+            <div>test</div>
+        </small-box>
+    </big-box>
+
+    <big-box id="right-box" style="background: green;"></big-box>
+</body>
+
+</html>
