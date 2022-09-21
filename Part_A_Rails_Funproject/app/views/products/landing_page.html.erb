@@ -15,7 +15,7 @@
   <h6>API: http://world.openfoodfacts.org/api/v0/product/&lt;upc_code&gt;.json</h6>
   <div class="input-group mb-2 mt-2">
     <%= form.label :upc_code, "Upc code", class:"input-group-text fw-bold" %>
-    <%= form.number_field :upc_code, class:"form-control", data: { numeric: true } %>
+    <%= form.text_field :upc_code, class:"form-control", id:"uintTextBox" %>
   </div>
   <div class="mb-3">
     <%= form.submit "Submit", class:"btn btn-primary btn-sm" %> or <%= link_to "Cancel", "/", class:"btn btn-primary btn-sm"  %>
