@@ -1,7 +1,7 @@
 <% flash.each do |type, msg| %>
   <% if type == 'alert' %>
     <div class="alert alert-danger" role="alert">
-      <%=  msg %>
+      <%= sanitize msg, tags: @tags %>
     </div>
   <% else %>
     <div class="alert alert-success" role="alert">

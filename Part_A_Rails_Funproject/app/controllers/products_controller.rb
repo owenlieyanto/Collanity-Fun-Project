@@ -6,11 +6,8 @@ class ProductsController < ApplicationController
     if (params[:upc_code].present?) # if (params.has_key?(:upc_code))
       @upc_code = params[:upc_code]
       
-      require 'net/http'
       source = "http://world.openfoodfacts.org/api/v0/product/#{@upc_code}.json"
-      resp = Net::HTTP.get_response(URI.parse(source))
-      data = resp.body
-      data = JSON.parse(data)
+      data = HTTParty.get(source).parsed_response
       
       # product not found
       if (data["status"] == 0)  
@@ -56,6 +53,11 @@ class ProductsController < ApplicationController
       end
 
     end
+  rescue SocketError => e
+    @tags = %w(br b)
+    flash.now.alert = "Please check your internet connection and try again.<br>
+                      <b>Error:</b> #{e}"
+    return
   end
 
   # GET /products or /products.json
